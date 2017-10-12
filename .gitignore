@@ -2,3 +2,4 @@
 .python-version
 db.*
 *__pycache__*
+app/migrations/0*
