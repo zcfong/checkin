@@ -2,3 +2,5 @@ django
 django-import-export
 django-suit
 django_select2
+gunicorn
+gevent

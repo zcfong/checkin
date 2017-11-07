@@ -1,7 +1,6 @@
 $(function(){ 
 	var pk = '';
 	var seat = '';
-	var sign = false;
 	var BASEAPI = "";
 	var toast = {
 		timer: null,
@@ -29,7 +28,7 @@ $(function(){
 		pk = '';
 		seat = '';
 		var value = $(this).val();
-		if(value.length>0 & !sign){
+		if(value.length>0){
 		    var active = $("#activeId").val();
 			var url = BASEAPI+'/checkin/query/'+'?t='+Date.now()
 			var data = new Object();
@@ -70,13 +69,10 @@ $(function(){
 		var value = $(this).text();
 		$('#search-kw').val(value);
 		$('#search-box').hide();
+		$('.seat').text('您的座位是： '+seatVal);
 	});
 	// 按钮事件
 	$('#search-bn').on('click',function(){
-	    if(sign){
-	        toast.show("您已签到成功。");
-            return false;
-	    }
 		if(pk.length>0){
 			var url = BASEAPI+'/checkin/sign/'+pk+'/?t='+Date.now()
 			var data = new Object();
@@ -90,9 +86,7 @@ $(function(){
 				success:function(data){
 					if(data.stat == 1){
 						toast.show("签到成功");
-						sign = true;
 						$('.seat').text('您的座位是： '+seat);
-						$('h1').text('签到成功');
 					}
 				}
 			});
