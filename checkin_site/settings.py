@@ -81,6 +81,19 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/2",
+    },
+    'select2': {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/1",
+        'TIMEOUT': 60 * 60 * 12,
+    }
+}
+
+SELECT2_CACHE_BACKEND = 'select2'
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 

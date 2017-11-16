@@ -4,3 +4,4 @@ django-suit
 django_select2
 gunicorn
 gevent
+django-redis
