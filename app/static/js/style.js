@@ -69,7 +69,7 @@ $(function(){
 		var value = $(this).text();
 		$('#search-kw').val(value);
 		$('#search-box').hide();
-		$('.seat').text('您的座位是： '+seatVal);
+		$('.seat').text('您的座位是： '+ seatVal);
 	});
 	// 按钮事件
 	$('#search-bn').on('click',function(){
@@ -87,6 +87,7 @@ $(function(){
 					if(data.stat == 1){
 						toast.show("签到成功");
 						$('.seat').text('您的座位是： '+seat);
+						$('h1').text('签到成功');
 					}
 				}
 			});
